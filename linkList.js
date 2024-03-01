@@ -27,6 +27,22 @@ class List{
             counter++
         }
     }
+    removeNode(index){
+        let counter = 1;
+        let lead = this.head;
+        if(index === 1){
+            this.head = this.head.next;
+        }else{
+            while(counter < index -1){
+                lead = lead.next;
+                counter++
+            }
+            let newNode = lead.next.next
+            lead.next = newNode
+            console.log(lead)
+        }
+        
+    }
 }
 const list = new List(100)
 list.appendNode(200)

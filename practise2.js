@@ -106,3 +106,20 @@ function powertwo(n){
         console.log(mid)
     }
     console.log(binaryrecursive(arr,90))
+
+
+
+    // ALTERNATIVE OF SPLICE METHOD TO ADD ITEM AT GIVEN INDEX
+
+    // const data = [1,2,3,4,5,6]
+function update(arr,index,val){
+    
+    arr.length = arr.length+1
+    console.log(arr)
+    for(let i= arr.length-1;i>index;i--){
+        arr[i] = arr[i-1]
+    }
+    arr[index] = val
+    return arr
+}
+console.log(update(data,2,10))
