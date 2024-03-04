@@ -79,7 +79,6 @@ x();
 
 
 // GUESS 1
-
 function x() {
     for (var i = 1; i <= 5; i++) {
         function close(x) {
@@ -95,7 +94,6 @@ x();
 
 
 // REMOVE DUPLICATE FROM  ARRAY BOTH KEY SHOULD NOT MATCH
-
 const arrObj = [  { name: 'abc', slug: 'abc' }, { name: 'xyz', slug: 'abc' }, { name: 'abc', slug: 'abc' }, { name: 'pqr', slug: 'xyz' } ];
 let result = [ { name: 'abc', slug: 'abc' },{ name: 'pqr', slug: 'xyz' }]
 
@@ -126,7 +124,6 @@ console.log(removeDuplicate(arrObj))
 
 
 // MERGE TWO OBJECT WHOSE VALUE IS NULL OR KEY IS NOT AVAILABLE
-
 const user1 = {
     name:"Rajan",
     age:null,
@@ -172,8 +169,6 @@ console.log(mergeObject(user1,user2))
 
 
 // SECOND LAREGST NUMBER IN ARRAY
-
-
 function secondLargest(arr){
     let first = -Infinity
     let second = -Infinity
@@ -191,3 +186,19 @@ function secondLargest(arr){
     return second
 }
 console.log(secondLargest([23,100,15,76,15,86,11]))
+
+
+// FIND INDEX OF SUM OF TWO ELEMENT OF ARRAY EQUAL TO TARGET
+function sumtarget(arr, target) {
+    let count = {};
+    for (let i = 0; i < arr.length; i++) {
+        let complement = target - arr[i];
+        if (count.hasOwnProperty(complement)) {
+            return { index1: count[complement], index2: i };
+        }
+        count[arr[i]] = i;
+    }
+    return "No two elements sum up to the target.";
+}
+
+console.log(sumtarget([1, 2, 3, 4, 5, 6], 10));

@@ -46,8 +46,6 @@ function selfSum (nums){
 
 
 // CLIMBING STEPS COUNT . THERE ARE TWO WAY TO CLIMB TO TOP 1 STEP AT TIME OR 2 STEP AT TIME
-
-
 function climbCount (num){
 
     let dp=[]
@@ -76,6 +74,8 @@ function powertwo(n){
      }
         return true
     }
+
+
     // POWER OF TWO
     function powerOfTwo(n){
              
@@ -85,7 +85,6 @@ function powertwo(n){
 
 
     // BINARY SEARCH RECURIVE
-
     function binaryrecursive(arr,target){
         return searchBinary(arr,target,0,arr.length-1)
     }
@@ -109,7 +108,7 @@ function powertwo(n){
 
 
 
-    // ALTERNATIVE OF SPLICE METHOD TO ADD ITEM AT GIVEN INDEX
+ // ALTERNATIVE OF SPLICE METHOD TO ADD ITEM AT GIVEN INDEX
 
     // const data = [1,2,3,4,5,6]
 function update(arr,index,val){
@@ -123,3 +122,44 @@ function update(arr,index,val){
     return arr
 }
 console.log(update(data,2,10))
+
+//SUM OF TRIPLET EQUAL TO TARGET 
+
+function findTriplets(nums) {
+    nums.sort((a, b) => a - b); // Sort the array
+    const triplets = [];
+
+    for (let i = 0; i < nums.length - 2; i++) {
+       
+        if (i === 0 || (i > 0 && nums[i] !== nums[i - 1])) { // Skip duplicates
+
+            let left = i + 1;
+            let right = nums.length - 1;
+            const target = 0 - nums[i];
+     
+            while (left < right) {
+                const sum = nums[left] + nums[right];
+         
+                if (sum === target) {
+                    triplets.push([nums[i], nums[left], nums[right]]);
+                    // console.log(nums[left], nums[left + 1])
+                    while (left < right && nums[left] === nums[left + 1]) left++; // Skip duplicates
+                    while (left < right && nums[right] === nums[right - 1]) right--; // Skip duplicates
+                    left++;
+                    right--;
+                } else if (sum < target) {
+                    left++;
+                } else {
+                    right--;
+                }
+            }
+        }
+    }
+
+    return triplets;
+}
+
+// Example usage:
+const nums = [-1, 0, 1, 2, -1, -4];
+const uniqueTriplets = findTriplets(nums);
+console.log(uniqueTriplets);

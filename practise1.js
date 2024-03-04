@@ -416,15 +416,34 @@ console.log(longestString('abcabcbb'))
 
 
 
-let hash = {
-  I: 1,
-  V: 5,
-  X: 10,
-  L: 50,
-  C: 100,
-  D: 500,
-  M: 1000,
-};
+//ROMAN TO INTEGER
+function romantoInt(num){
+  const hash = {
+      'I': 1,
+      'V': 5,
+      'X': 10,
+      'L': 50,
+      'C': 100,
+      'D': 500,
+      'M': 1000
+  };
+  let sum = 0;
+  
+  for(let i=0;i<num.length-1;i++){
+      
+      if(hash[num[i]] < hash[num[i+1]]){
+           sum -= hash[num[i]]
+      }else{
+          sum += hash[num[i]]
+      }
+  }
+  sum += hash[num[num.length-1]]
+ 
+ return sum 
+}
+
+console.log(romantoInt('CXX'))
+
 
 // ROTATE
 let reverseNums = (nums, start, end) => {
