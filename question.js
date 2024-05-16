@@ -63,35 +63,6 @@ function Ismonotonic(arr){
 // console.log(Ismonotonic([1,2,3,4,5,6]))  //true
 // console.log(Ismonotonic([4, 0, 3, 1]))    // false
 
-//GUESS
-
-function x() {
-    for (var i = 1; i < 5; i++) {
-        setTimeout(function () {
-            console.log(i);
-    
-        }, i * 1000);
-    }
-    console.log('Namaste JavaScript');
-}
-
-x();
-
-
-// GUESS 1
-function x() {
-    for (var i = 1; i <= 5; i++) {
-        function close(x) {
-            setTimeout(function () {
-                console.log(x); //
-            }, x * 1000);
-        } 
-        close(i);
-    }
-}
-
-x();
-
 
 // REMOVE DUPLICATE FROM  ARRAY BOTH KEY SHOULD NOT MATCH
 const arrObj = [  { name: 'abc', slug: 'abc' }, { name: 'xyz', slug: 'abc' }, { name: 'abc', slug: 'abc' }, { name: 'pqr', slug: 'xyz' } ];
@@ -201,4 +172,34 @@ function sumtarget(arr, target) {
     return "No two elements sum up to the target.";
 }
 
+
 console.log(sumtarget([1, 2, 3, 4, 5, 6], 10));
+
+// Add plus 1 if number is greater than 9 set to zero
+var plusOne = function (digits) {
+    for (let i = digits.length - 1; i >= 0; i--) {
+        if (digits[i] < 9) {
+            digits[i] = digits[i] + 1;
+            return digits;
+        } else {
+            digits[i] = 0;
+        }
+    }
+
+    digits.unshift(1);
+    return digits;
+};
+
+console.log(plusOne([9,9]))
+
+
+function sum(a){
+    
+    return function (b){
+       if(b) return sum(a+b)
+         return a  
+    }
+}
+
+
+console.log(sum(2)(3)(4)(12)())

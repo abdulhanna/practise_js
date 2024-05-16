@@ -109,6 +109,10 @@ function twoShift(arr){
     arr[arr.length-1] = temp
     arr[arr.length-2] = temp1
    return arr
+
+ //    OR
+[arr[start],arr[end]] = [arr[end],arr[start]]
+return arr
 }
 // console.log(rotate(arr))
 

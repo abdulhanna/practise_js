@@ -127,24 +127,21 @@ console.log(update(data,2,10))
 
 function findTriplets(nums) {
     nums.sort((a, b) => a - b); // Sort the array
-    const triplets = [];
+    let triplets = [];
 
     for (let i = 0; i < nums.length - 2; i++) {
-       
-        if (i === 0 || (i > 0 && nums[i] !== nums[i - 1])) { // Skip duplicates
-
+        // Skip duplicates
+        if (i === 0 || (i > 0 && nums[i] !== nums[i - 1])) {
             let left = i + 1;
             let right = nums.length - 1;
             const target = 0 - nums[i];
-     
             while (left < right) {
                 const sum = nums[left] + nums[right];
-         
                 if (sum === target) {
                     triplets.push([nums[i], nums[left], nums[right]]);
-                    // console.log(nums[left], nums[left + 1])
-                    while (left < right && nums[left] === nums[left + 1]) left++; // Skip duplicates
-                    while (left < right && nums[right] === nums[right - 1]) right--; // Skip duplicates
+                    // Skip duplicates
+                    while (left < right && nums[left] === nums[left + 1]) left++;
+                    while (left < right && nums[right] === nums[right - 1]) right--;
                     left++;
                     right--;
                 } else if (sum < target) {
@@ -159,7 +156,6 @@ function findTriplets(nums) {
     return triplets;
 }
 
-// Example usage:
 const nums = [-1, 0, 1, 2, -1, -4];
 const uniqueTriplets = findTriplets(nums);
-console.log(uniqueTriplets);
+console.log(uniqueTriplets); // Output: [[-1, -1, 2], [-1, 0, 1]]

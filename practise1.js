@@ -102,7 +102,6 @@ function findSamekey (obj1,obj2){
 
 
 // Find new array with sum of array value expect index of that iteration 
-
 let arr1= [2,4,6,10,23,-2]
 let output = [41,39,37,33,20,45]
 
@@ -218,7 +217,6 @@ function longestCommonPrefix(strs){
 
 
 // Sum of 3345678 without converting into string
-
 function sumDigits(number) {
   let sum = 0;
 
@@ -237,7 +235,6 @@ const result1 = sumDigits(number);
 
 
 //BINARY SEARCH {work only on sorted array}
-
 function Search(arr){
   let start = 0
   let end = arr.length -1;
@@ -265,7 +262,6 @@ function Search(arr){
 
 
 //FIND ANAGRAM 
-
 function anagram(str1, str2) {
   if (str1.length !== str2.length) {
       return false;  // Anagrams must be of the same length
