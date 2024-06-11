@@ -81,7 +81,7 @@ function greeting(name) {
 
 // Callback Function Example
 
-const datas =[ 
+const datas = [ 
     { name:"peter", role:"admin"},
     {name:"john" , role:"developer"}
 ]
