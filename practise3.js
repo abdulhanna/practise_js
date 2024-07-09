@@ -24,7 +24,6 @@ console.log(filter(data,5))
 
 
 //PATTERN OF STAR
-
 function pattern(arr){
     let maxNum = Math.max(...arr)
     
@@ -54,7 +53,6 @@ console.log(pattern(data))
 
 
 //MERGE TWO SORTED ARRAY LEETCODE
-
 function addUp(arr,arr1,n,m){
     let i =0, j =0,k = 0
     let res = Array(n+m).fill(0)
@@ -107,3 +105,15 @@ function addUp(arr,arr1,n,m){
   }
 
   console.log(MaximumSubArrray(nums))
+
+
+// Sort asending order only positve number and skip if any negative number comes
+let arr = [1,3,-39,9,-2];
+let output = [ 1, 9, -39, 14, -2 ];
+function ques(arr){
+  let posIndex = 0
+  let pos = arr.filter((item)=> item >0 ).sort((a,b)=>  a-b)
+  arr = arr.map((item,index)=> item >0 ? pos[posIndex++] : item )
+  return arr
+}
+console.log(ques([1,14,-39,9,-2] ))

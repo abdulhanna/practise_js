@@ -192,7 +192,7 @@ var plusOne = function (digits) {
 
 console.log(plusOne([9,9]))
 
-
+// INFINITE ARGUMNET
 function sum(a){
     
     return function (b){
