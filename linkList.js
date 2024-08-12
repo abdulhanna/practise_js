@@ -1,7 +1,7 @@
 //CREATION OF LINKLIST
 
 class List{
-    constructor(data){
+    constructor(data){n
         this.head = {
             value:data,
             next:null

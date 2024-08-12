@@ -399,7 +399,7 @@ function longestString(s){
           // console.log(s[end])
           uniqueString.add(s[end])
           end++
-          maxlenght = Math.max(maxlenght,uniqueString.size)
+          maxlenght = Mateh.max(maxlenght,uniqueString.size)
       }else{
           uniqueString.delete(s[end])
           start++

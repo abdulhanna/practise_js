@@ -26,7 +26,7 @@ const promise = () => {
     console.log(a())
     console.log(a())
 
-// MOVE ZEROS TO THE END OF ARRAY
+// MOVE ZEROS TO THE END OF ARRAY OR MOVES ZEROS TO RIGHT
     const moveZeros = function(nums){
         let left = 0;
         let right= 0;
@@ -43,6 +43,26 @@ const promise = () => {
 
 // console.log(moveZeros([0,1,0,3,12]))
 
+
+//MOVE ZEROS TO LEFT 
+
+function moveZeros1(arr){
+    let left = arr.length-1,right=arr.length-1;
+    
+    while(right >=0){
+      if(arr[right] !==0 ){
+                  [arr[right],arr[left]] = [arr[left],arr[right]]
+            left--
+      }
+      right--
+    }
+    
+    while(left >=0){
+        arr[left] = 0
+        left--
+    }
+    return arr
+}
 
 // Is Array is monotinic array
 

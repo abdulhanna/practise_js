@@ -91,7 +91,7 @@ function addUp(arr,arr1,n,m){
        
           sumArr = max(sumArr,cur)
         
-          console.log(cur,sumArr,arr[i],'second')
+          // console.log(cur,sumArr,arr[i],'second')
    }
 
    function max(a,b){
