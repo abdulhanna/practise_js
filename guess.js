@@ -38,3 +38,18 @@ function x() {
 }
 
 x();
+
+
+// OBECT SETPROTOTYPEOF PROPERTY 
+let person = {
+  name:"jack",
+  age:20
+}
+
+let student = {
+  id:1,
+  address:'B-10 sector 59'
+}
+
+Object.setPrototypeOf(student,person)
+console.log(student.name)

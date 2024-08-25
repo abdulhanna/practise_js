@@ -309,6 +309,7 @@ function twoSum (arr,target){
   let complement = target - arr[i]
   
   if(indices.hasOwnProperty(complement)){
+    indices.hasOwnProperty(complement)
       return {index1:indices[complement],index2:i}
   }
   // console.log(complement)
