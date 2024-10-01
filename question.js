@@ -223,3 +223,25 @@ function sum(a){
 
 
 console.log(sum(2)(3)(4)(12)())
+
+
+
+//FLATEN ARRAY 
+const data = [1,[2,2],[3,4,5],[6,7,[8,9]],10]
+function flat1(arr){
+    let res = []
+    for(let i=0;i<arr.length;i++){
+        if(Array.isArray(arr[i])){
+            let flaten = flat1(arr[i])
+              for(let j=0;j<flaten.length;j++){
+                  res[res.length] = flaten[j]
+              }
+
+        }else{
+            res[res.length] = arr[i]
+        }
+    }
+    return res
+}
+// console.log(data.flat(1))
+console.log(flat1(data))
