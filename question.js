@@ -245,3 +245,17 @@ function flat1(arr){
 }
 // console.log(data.flat(1))
 console.log(flat1(data))
+
+
+function finder(str) {
+    let res = str[0]; // Start with the first character
+    for (let i = 0; i < str.length; i++) {
+      if (str[i] === " " && i + 1 < str.length) {
+        res += str[i + 1]; // Add the character after the space
+      }
+    }
+    return res;
+  }
+  
+  console.log(finder('Abdul Hannan Khan'));  // Output: "AHK"
+  

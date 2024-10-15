@@ -48,3 +48,37 @@ function search(arr,target){
         },{})
     }
     console.log(groupBy(items,'category'))
+
+
+    const data = [
+      {id:1,marks:29},
+      {id:2,marks:30},
+      {id:3,marks:30},
+      {id:4,marks:28},
+      {id:5,marks:29},
+      {id:6,marks:30},
+      
+  ]
+
+
+    function groupByMarks(data) {
+      const groupedData = {};
+  
+      // Group IDs by marks
+      data.forEach(item => {
+          if (!groupedData[item.marks]) {
+              groupedData[item.marks] = [];
+          }
+          groupedData[item.marks].push(item.id);
+      });
+     console.log(groupedData)
+      // Convert the grouped data to the desired output format
+      const result = Object.keys(groupedData).map(key => ({
+          id: groupedData[key],
+          marks: Number(key)
+      }));
+  
+      return result;
+  }
+  
+  console.log(groupByMarks(data));
