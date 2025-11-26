@@ -58,3 +58,13 @@ Array.prototype.myMap = function(callbackFn) {
   
       return element;
   }))
+
+
+Array.prototype.toObject = function(cb){
+    let obj = {}
+    for(let i=0;i<this.length;i++){
+        const key  = cb ? cb(this[i],i,this):i
+        obj[key] = this[i]
+    }
+    return obj
+}
