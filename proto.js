@@ -81,3 +81,64 @@ function myMemoize(fn,context){
     }
    
 }
+
+
+
+
+function PromisePolyFill(executor){
+    let onResolve,onReject,isFullfilled=false,isCalled=false,value,isRejected=false;
+    
+    function resolve(val){
+        isFullfilled = true;
+        value = val;
+        // console.log(typeof onResolve)
+        if(typeof onResolve === 'function'){
+            onResolve(val);
+            isCalled = true;
+        }
+        // onResolve(val)
+    }
+     function reject(val){
+         isRejected = true
+         value = val;
+         if(typeof onResolve === 'function'){
+             onReject(val)
+            isCalled = true;
+        }
+       
+    }
+    this.then = function(callback){
+        onResolve = callback;
+        if(isFullfilled && !isCalled){
+            onResolve(value)
+        }
+        return this
+    }
+    
+    this.catch = function(callback){
+        onReject = callback
+        if(isRejected && !isCalled){
+            onReject(value)
+            isCalled = true
+        }
+        return this
+    }
+    try{
+    executor(resolve,reject)
+    }catch(error){
+        onReject(error)
+    }
+}
+
+const examplePromise = new PromisePolyFill((resolve,reject)=>{
+    // setTimeout(()=>{
+        // resolve(2000)
+        reject(20)
+    // },2000)
+})
+
+examplePromise.then((res)=>{
+    console.log(res)
+}).catch((err)=>{
+    console.log(err)
+})
