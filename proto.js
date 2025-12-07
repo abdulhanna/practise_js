@@ -68,3 +68,16 @@ Array.prototype.toObject = function(cb){
     }
     return obj
 }
+
+function myMemoize(fn,context){
+    let res = {}
+    return function(...args){
+         var cache = JSON.stringify(args)
+         if(!res[cache]){
+             console.log(args)
+              res[cache] = fn.call(context|| this,...args)
+         }
+         return cache
+    }
+   
+}
