@@ -56,3 +56,27 @@ function pattern2(){
     }
     console.log(pat)
 }
+
+
+// 1 8 14 19 23 26 28
+// 2 9 15 20 24 27
+// 3 1016 21 25
+// 4 1117 22
+// 5 1218
+// 6 13
+// 7
+function reversePattern(){
+    let pat = ''
+    let rows = 7
+    for(let i=1;i<=rows;i++){
+        let current = i
+        pat += current  + " "
+        for(let j=rows;j>=i+1;j--){
+            current += j
+            pat += current  + " "
+        }
+        pat += "\n"
+    }
+    return pat
+}
+console.log(pattern())
