@@ -44,7 +44,7 @@ let range = []
  // Longest pallindrome in a String
 
  function longestPallindrome(str){
-  let longest =  "" ;
+  let longest =  str[0] || "" ;
   
   for(let i=0;i<str.length;i++){
     let subStr = str[i]
