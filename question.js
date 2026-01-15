@@ -64,6 +64,18 @@ function moveZeros1(arr){
     return arr
 }
 
+//Optimize way 
+function moveZerosToStart(arr){
+  let left = arr.length-1
+  for(let right=arr.length-1;right>=0;right--){
+     if(arr[right]!== 0){
+       [arr[right],arr[left]] = [arr[left],arr[right]]
+       left--
+     }
+  }
+  return arr
+}
+
 // Is Array is monotinic array
 
 function Ismonotonic(arr){
