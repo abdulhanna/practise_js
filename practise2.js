@@ -46,16 +46,15 @@ function selfSum (nums){
 
 
 // CLIMBING STEPS COUNT . THERE ARE TWO WAY TO CLIMB TO TOP 1 STEP AT TIME OR 2 STEP AT TIME
-function climbCount (num){
-
-    let dp=[]
-     dp[1] = 1
-     dp[2] = 2
-     for(let i=3;i<num;i++){
+function climbCount(num){
+    let dp= new Array(num+1).fill(0)
+    dp[0] = 1
+    dp[1]= 1
+    for(let i=2;i<=num;i++){
         dp[i] = dp[i-1]+dp[i-2]
-     }
-
-     return dp[n]
+    }
+    return dp[num]
+    
 }
 
 
