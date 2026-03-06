@@ -82,3 +82,20 @@ function search(arr,target){
   }
   
   console.log(groupByMarks(data));
+
+
+let arr = [1,2,3,3,4,3,3,1,1,2];
+
+function sortByFreq(data){
+    let freq ={}
+    for(let d in data){
+        freq[data[d]] = (freq[data[d]]||0) +1
+    }
+    return Object.entries(freq)
+        .sort((a,b)=> a[1] - b[1])
+        .map((num) => {
+            console.log(num)
+            return Number(num[0])
+        })
+}
+console.log(sortByFreq(arr))
