@@ -119,7 +119,16 @@ start()
 
 
 // PROMISE 
-
+function deepClone(obj){
+    if(obj === null || typeof obj !== 'object') return obj
+    
+    let copy = Array.isArray(obj) ? [] : {}
+    
+    for(let key in obj){
+        copy[key] = deepClone(obj[key])
+    }
+    return copy
+}
 const orderFood = () => {
 
     // A buzzer will be handled to you
@@ -190,5 +199,17 @@ function duplicate(input1,input2){
         if(input1[i] === input2[i]) count[i] = input1[i]
     }
     return count
+}
+
+// Deep clone of Object
+function deepClone(obj){
+    if(obj === null || typeof obj !== 'object') return obj
+    
+    let copy = Array.isArray(obj) ? [] : {}
+    
+    for(let key in obj){
+        copy[key] = deepClone(obj[key])
+    }
+    return copy
 }
 
