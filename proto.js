@@ -69,18 +69,54 @@ Array.prototype.toObject = function(cb){
     return obj
 }
 
-function myMemoize(fn,context){
-    let res = {}
-    return function(...args){
-         var cache = JSON.stringify(args)
-         if(!res[cache]){
-             console.log(args)
-              res[cache] = fn.call(context|| this,...args)
-         }
-         return cache
-    }
+// function myMemoize(fn,context){
+//     let res = {}
+//     return function(...args){
+//          var cache = JSON.stringify(args)
+//          if(!res[cache]){
+//              console.log(args)
+//               res[cache] = fn.call(context|| this,...args)
+//          }
+//          return cache
+//     }
    
+// }
+
+function memoise(fun){
+    let cache = {}
+    return function(...args){
+         let n = args[0]
+         if(n in cache){
+           return cache[n]
+         }else{
+             let result = fun(n)
+             cache[n] = result
+             return result
+         }
+         console.log(n)
+    }
 }
+
+const add = (num)=>{
+   let sum = 0
+   for(let i=0;i<num;i++){
+       
+       sum += i
+   }
+   return sum
+}
+// const res = add(10)
+// console.time()
+// console.log(res)
+// console.timeEnd()
+const memo = memoise(add)
+console.time()
+console.log(memo(5))
+console.timeEnd()
+
+console.time()
+console.log(memo(5))
+console.timeEnd()
 
 
 
