@@ -1,3 +1,24 @@
+What is Prototype Inheritance?
+🔹 Definition
+
+Prototype inheritance in JavaScript means that objects can inherit properties and methods from another object through the prototype chain.
+
+const parent = {
+  greet() {
+    return "Hello";
+  }
+};
+
+const child = {
+  name: "Hannan"
+};
+
+child.__proto__ = parent;
+
+console.log(child.greet());
+ output = Hello
+JS didn’t find greet in child, so it looked into parent.
+
 let user = {
     name:"john",
     role:"developer"
